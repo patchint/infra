@@ -1,0 +1,163 @@
+#!/bin/bash
+
+# Function to create a virtual machine with Cloud-init
+create_vm() {
+    vm_name=$1
+    os=$2
+    size=$3
+### Pour info, je n'ai pas encore réussi à faire marcher ArchLinux, donc ça doit sûrement venir de l'image que j'utilise
+    case $os in
+        "Archlinux")
+            os_variant="archlinux"
+            cloud_init_config=$(cat <<EOF
+#cloud-config
+system_info:
+  default_user:
+    name: patch
+    home: /home/patch
+    sudo: ALL=(ALL) NOPASSWD:ALL
+password: patch
+chpasswd: { expire: False }
+hostname: ${vm_name}
+ssh_authorized_keys:
+    - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILMkF0678gOLwqvtRGGNn9F57EJlfCi4iJSsgXK/ZAbQ patch@spaceint.fr
+    - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAcCc6Aho3OOoa/W/rdy5D+1uHDQ8MfaxhwRTALXWLiA patch@fedora
+
+ssh_pwauth: True
+package_upgrade: true
+packages:
+- neofetch
+
+runcmd:
+- echo "feur" > feur.txt
+
+EOF
+)
+            ;;
+        "Debian")
+            os_variant="debian"
+            cloud_init_config=$(cat <<EOF
+#cloud-config
+system_info:
+  default_user:
+    name: patch
+    home: /home/patch
+    sudo: ALL=(ALL) NOPASSWD:ALL
+password: patch
+chpasswd: { expire: False }
+hostname: ${vm_name}
+ssh_authorized_keys:
+    - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILMkF0678gOLwqvtRGGNn9F57EJlfCi4iJSsgXK/ZAbQ patch@spaceint.fr
+    - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAcCc6Aho3OOoa/W/rdy5D+1uHDQ8MfaxhwRTALXWLiA patch@fedora
+
+ssh_pwauth: True
+package_upgrade: true
+packages:
+- neofetch
+
+runcmd:
+- echo "feur" > feur.txt
+
+EOF
+)
+            ;;
+        "Fedora")
+            os_variant="fedora"
+            cloud_init_config=$(cat <<EOF
+#cloud-config
+system_info:
+  default_user:
+    name: patch
+    home: /home/patch
+    sudo: ALL=(ALL) NOPASSWD:ALL
+password: patch
+chpasswd: { expire: False }
+hostname: ${vm_name}
+ssh_authorized_keys:
+    - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILMkF0678gOLwqvtRGGNn9F57EJlfCi4iJSsgXK/ZAbQ patch@spaceint.fr
+    - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAcCc6Aho3OOoa/W/rdy5D+1uHDQ8MfaxhwRTALXWLiA patch@fedora
+
+ssh_pwauth: True
+package_upgrade: true
+packages:
+- neofetch
+
+runcmd:
+- echo "feur" > feur.txt
+
+EOF
+)
+            ;;
+        "Ubuntu")
+            os_variant="ubuntu"
+            cloud_init_config=$(cat <<EOF
+#cloud-config
+system_info:
+  default_user:
+    name: patch
+    home: /home/patch
+    sudo: ALL=(ALL) NOPASSWD:ALL
+password: patch
+chpasswd: { expire: False }
+hostname: ${vm_name}
+ssh_authorized_keys:
+    - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILMkF0678gOLwqvtRGGNn9F57EJlfCi4iJSsgXK/ZAbQ patch@spaceint.fr
+    - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAcCc6Aho3OOoa/W/rdy5D+1uHDQ8MfaxhwRTALXWLiA patch@fedora
+
+ssh_pwauth: True
+package_upgrade: true
+packages:
+- neofetch
+
+runcmd:
+- echo "feur" > feur.txt
+
+EOF
+)
+            ;;
+        *)
+            echo "Choix invalide."
+            exit 1
+            ;;
+    esac
+
+    case $size in
+        "10G")
+            disk_size="10"
+            ;;
+        "20G")
+            disk_size="20"
+            ;;
+        "30G")
+            disk_size="30"
+            ;;
+        "Personnaliser")
+            read -p "Entrez la taille custom: " custom_size
+            disk_size="$custom_size"
+            ;;
+        *)
+            echo "Choix invalide."
+            exit 1
+            ;;
+    esac
+
+    virt-install --name "$vm_name" --vcpu 4 --memory 4096 --os-variant "detect=on" \
+                 --disk size="${disk_size}",backing_store="/VM/VMImages/${os_variant}-base.qcow2" \
+                 --cloud-init user-data=<(echo "$cloud_init_config") \
+                 --graphics none --noautoconsole --import
+}
+
+read -p "Entrer le nom de la VM: " vm_name
+
+echo "Choisir un OS:"
+select os_choice in "Archlinux" "Debian" "Fedora" "Ubuntu"; do
+    break
+done
+
+echo "Choisir la taille du stockage:"
+select size_choice in "10G" "20G" "30G" "Personnaliser"; do
+    break
+done
+
+create_vm "$vm_name" "$os_choice" "$size_choice"
+
