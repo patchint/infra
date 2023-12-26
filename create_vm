@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Function to create a virtual machine with Cloud-init
 create_vm() {
     vm_name=$1
     os=$2
