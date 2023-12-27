@@ -45,7 +45,7 @@ cp vm-cloudinit/* /usr/bin/
 chmod +x /usr/bin/create_vm /usr/bin/getip_vm /usr/bin/ssh_vm /usr/bin/delete_vm
 ```
 
-Vous pouvez maintenant utiliser les commandes create_vm, getip_vm, ssh_vm et delete_vm !
+Vous pouvez maintenant utiliser les commandes create_vm, getip_vm et delete_vm !
 
 ### Utilisation
 
@@ -105,9 +105,6 @@ La VM test a bien été supprimée
 ### Cas particuliers
 
 Faites attention à certaines choses, dans le cas où vous avez déjà un hôte dans votre fichier ~/.ssh/config, pensez à sois changer le nom de votre VM, sois changer le nom d'un des hôtes dans votre fichier de config. 
-
-
-!!!! Pas fini !!!!
 
 ## Utilitaire
 
