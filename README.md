@@ -42,7 +42,7 @@ Maintenant, vous pouvez installer les différents scripts à l'aide de ces comma
 git clone https://git.patchli.fr/patch/scripts
 cd scripts
 cp vm-cloudinit/* /usr/bin/
-chmod +x /usr/bin/create_vm /usr/bin/getip_vm /usr/bin/ssh_vm /usr/bin/delete_vm
+chmod +x /usr/bin/create_vm /usr/bin/getip_vm /usr/bin/delete_vm
 ```
 
 Vous pouvez maintenant utiliser les commandes create_vm, getip_vm et delete_vm !
