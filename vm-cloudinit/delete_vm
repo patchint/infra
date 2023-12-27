@@ -1,0 +1,5 @@
+#!/bin/bash
+virsh destroy $1
+virsh undefine --domain $1
+rm /var/lib/libvirt/images/$1.qcow2
+echo "La VM $1 a bien été supprimée" 

@@ -1,0 +1,3 @@
+#!/bin/bash
+ip_address=$(virsh domifaddr "$1" | awk '/ipv4/ {split($4, a, "/"); print a[1]}')
+echo "$ip_address"
