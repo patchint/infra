@@ -24,7 +24,7 @@ sudo adduser <utilisateur> libvirt
 ```
 
 Pensez aussi à créer une paire de clef SSH, la clef public sera récupéré par le script pour pouvoir mettre vos clef sur la ou les VM. 
-Par ailleurs, je recommande de créer des clef SSH ed25519, elle sont bien meilleurs que les clef RSA. (![Ed25519: high-speed high-security signatures](https://ed25519.cr.yp.to/))
+Par ailleurs, je recommande de créer des clef SSH ed25519, elle sont bien meilleurs que les clef RSA. ([Ed25519: high-speed high-security signatures](https://ed25519.cr.yp.to/))
 
 Pour générer une paire de clef SSH : 
 
@@ -37,7 +37,7 @@ Maintenant dans votre dossier ~/.ssh vous devez avoir deux fichiers distincts : 
 
 #### Télécharger les images des différents OS
 
-Vous devez télécharger les différentes images des OS disponibles, par exemple pour Debian c'est à cet ![adresse](https://cloud.debian.org/images/cloud/)
+Vous devez télécharger les différentes images des OS disponibles, par exemple pour Debian c'est à cet [adresse](https://cloud.debian.org/images/cloud/)
 
 Après ça, vous devez renommer votre fichier, par exemple pour Debian : debian-base.qcow2. Car dans mon script create_vm, j'utilise des images avec cette base : NOMOS-base.qcow2.
 
