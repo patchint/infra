@@ -107,7 +107,7 @@ La VM test a bien été supprimée
 Faites attention à certaines choses, dans le cas où vous avez déjà un hôte dans votre fichier ~/.ssh/config, pensez à sois changer le nom de votre VM, sois changer le nom d'un des hôtes dans votre fichier de config. 
 Si cet hôte déjà présent dans le fichier détient le même nom que celui de la VM, vous ne pourrez pas vous connecter à l'un nis à l'autre
 
-Pareil, si vous avez un utilisateur global pour tout vos hôtes que vous avez paramétrer de cet manière : 
+Pareil, si vous avez un utilisateur global pour tout vos hôtes que vous avez paramétrer de cette manière : 
 
 ```
 Host *
@@ -115,6 +115,17 @@ Host *
 ```
 
 Vous devez sois retirer votre paramètre pour vous connecter à la VM, sois au moment de la création de la VM, paramétrer celle-ci pour que l'utilisateur dans la VM ait le même nom d'utilisateur global de la configuration SSH.
+
+#### Sécurité
+
+Attention, par défaut dans les configurations cloud-init, je défini un mot de passe par défaut qui est le même que le nom d'utilisateur qu'est défini lors de la création de la VM.
+Dans un cas où celle-ci est utilisée sur un serveur "cloud", et pas en local dans un cas de test par exemple, veillez à supprimer cette ligne dans chaque configuration cloud-init : 
+
+```
+password: ${username}
+```
+
+Si la VM est en local/dans un réseau fermé, c'est pas grave vous pouvez laisser ça
 
 ## Utilitaire
 
