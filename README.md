@@ -34,6 +34,13 @@ ssh-keygen -t ed25519
 
 Maintenant dans votre dossier ~/.ssh vous devez avoir deux fichiers distincts : id_ed25519 et id_ed25519.pub. Le script récupère le .pub
 
+
+#### Télécharger les images des différents OS
+
+Vous devez télécharger les différentes images des OS disponibles, par exemple pour Debian c'est à cet ![adresse](https://cloud.debian.org/images/cloud/)
+
+Après ça, vous devez renommer votre fichier, par exemple pour Debian : debian-base.qcow2. Car dans mon script create_vm, j'utilise des images avec cette base : NOMOS-base.qcow2.
+
 ### Installation
 
 Maintenant, vous pouvez installer les différents scripts à l'aide de ces commandes :
