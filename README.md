@@ -242,7 +242,7 @@ md2slides MaPresentation.md MaPresentation.html
 
 ### mdf2slides
 
-Ce script fonctionne exactement de la même que mdf2html sauf que celui-ci fait des slides 
+Ce script fonctionne exactement de la même manière que mdf2html sauf que celui-ci fait des slides 
 
 #### Utilisation
 
