@@ -1,8 +1,0 @@
-#!/bin/bash
-for markdown_file in *.md; do
-    if [ -f "$markdown_file" ]; then
-        base_name=$(basename "$markdown_file" .md)
-        html_file="$base_name.html"
-        md2html "$markdown_file" "$html_file"
-    fi
-done
