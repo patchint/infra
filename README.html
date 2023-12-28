@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <style type="text/css">@font-face {
+font-family: octicons-link;
+src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+body {
+background-color: #000;
+-webkit-text-size-adjust: 100%;
+text-size-adjust: 100%;
+color: white;
+font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+font-size: 16px;
+line-height: 1.6;
+word-wrap: break-word;
+width: 728px;
+max-width: 99%;
+box-sizing: border-box;
+padding: 30px 30px 8rem 30px;
+margin-left: auto;
+margin-right: auto;
+}
+body a {
+background-color: transparent;
+}
+a {
+color: #ffd9a0;
+text-decoration: none;
+}
+a:hover {
+text-decoration: underline;
+}
+body a:active,
+body a:hover {
+outline: 0;
+}
+body strong {
+font-weight: bold;
+}
+body h1 {
+font-size: 2em;
+margin: 0.67em 0;
+}
+body img {
+border: 0;
+}
+body hr {
+box-sizing: content-box;
+height: 0;
+}
+body pre {
+overflow: auto;
+background-color: rgb(29, 31, 32);
+}
+body code,
+body kbd,
+body pre {
+font-family: monospace, monospace;
+font-size: 1em;
+}
+body input {
+color: inherit;
+font: inherit;
+margin: 0;
+}
+body html input[disabled] {
+cursor: default;
+}
+body input {
+line-height: normal;
+}
+body input[type="checkbox"] {
+box-sizing: border-box;
+padding: 0;
+}
+body table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+body td,
+body th {
+padding: 0;
+}
+body * {
+box-sizing: border-box;
+}
+body input {
+font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+body a {
+color: #4078c0;
+text-decoration: none;
+}
+body a:hover,
+body a:active {
+text-decoration: underline;
+}
+body hr {
+height: 0;
+margin: 15px 0;
+overflow: hidden;
+background: transparent;
+border: 0;
+border-bottom: 1px solid #ddd;
+}
+body hr:before {
+display: table;
+content: "";
+}
+body hr:after {
+display: table;
+clear: both;
+content: "";
+}
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6 {
+margin-top: 15px;
+margin-bottom: 15px;
+line-height: 1.1;
+}
+body h1 {
+font-size: 30px;
+}
+body h2 {
+font-size: 21px;
+}
+body h3 {
+font-size: 16px;
+}
+body h4 {
+font-size: 14px;
+}
+body h5 {
+font-size: 12px;
+}
+body h6 {
+font-size: 11px;
+}
+body blockquote {
+margin: 0;
+}
+body ul,
+body ol {
+padding: 0;
+margin-top: 0;
+margin-bottom: 0;
+}
+body ol ol,
+body ul ol {
+list-style-type: lower-roman;
+}
+body ul ul ol,
+body ul ol ol,
+body ol ul ol,
+body ol ol ol {
+list-style-type: lower-alpha;
+}
+body dd {
+margin-left: 0;
+}
+body code {
+font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+font-size: 12px;
+}
+body pre {
+margin-top: 0;
+margin-bottom: 0;
+font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+body .select::-ms-expand {
+opacity: 0;
+}
+body .octicon {
+font: normal normal normal 16px/1 octicons-link;
+display: inline-block;
+text-decoration: none;
+text-rendering: auto;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+body .octicon-link:before {
+content: '\f05c';
+}
+body:before {
+display: table;
+content: "";
+}
+body:after {
+display: table;
+clear: both;
+content: "";
+}
+body>*:first-child {
+margin-top: 0 !important;
+}
+body>*:last-child {
+margin-bottom: 0 !important;
+}
+body a:not([href]) {
+color: inherit;
+text-decoration: none;
+}
+body .anchor {
+display: inline-block;
+padding-right: 2px;
+margin-left: -18px;
+}
+body .anchor:focus {
+outline: none;
+}
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6 {
+margin-top: 1em;
+margin-bottom: 16px;
+font-weight: bold;
+line-height: 1.4;
+}
+body h1 .octicon-link,
+body h2 .octicon-link,
+body h3 .octicon-link,
+body h4 .octicon-link,
+body h5 .octicon-link,
+body h6 .octicon-link {
+color: #000;
+vertical-align: middle;
+visibility: hidden;
+}
+body h1:hover .anchor,
+body h2:hover .anchor,
+body h3:hover .anchor,
+body h4:hover .anchor,
+body h5:hover .anchor,
+body h6:hover .anchor {
+text-decoration: none;
+}
+body h1:hover .anchor .octicon-link,
+body h2:hover .anchor .octicon-link,
+body h3:hover .anchor .octicon-link,
+body h4:hover .anchor .octicon-link,
+body h5:hover .anchor .octicon-link,
+body h6:hover .anchor .octicon-link {
+visibility: visible;
+}
+body h1 {
+padding-bottom: 0.3em;
+font-size: 1.75em;
+line-height: 1.2;
+}
+body h1 .anchor {
+line-height: 1;
+}
+body h2 {
+padding-bottom: 0.3em;
+font-size: 1.5em;
+line-height: 1.225;
+}
+body h2 .anchor {
+line-height: 1;
+}
+body h3 {
+font-size: 1.25em;
+line-height: 1.43;
+}
+body h3 .anchor {
+line-height: 1.2;
+}
+body h4 {
+font-size: 1em;
+}
+body h4 .anchor {
+line-height: 1.2;
+}
+body h5 {
+font-size: 1em;
+}
+body h5 .anchor {
+line-height: 1.1;
+}
+body h6 {
+font-size: 1em;
+color: #777;
+}
+body h6 .anchor {
+line-height: 1.1;
+}
+body p,
+body blockquote,
+body ul,
+body ol,
+body dl,
+body table,
+body pre {
+margin-top: 0;
+margin-bottom: 16px;
+}
+body hr {
+height: 4px;
+padding: 0;
+margin: 16px 0;
+background-color: #e7e7e7;
+border: 0 none;
+}
+body ul,
+body ol {
+padding-left: 2em;
+}
+body ul ul,
+body ul ol,
+body ol ol,
+body ol ul {
+margin-top: 0;
+margin-bottom: 0;
+}
+body li>p {
+margin-top: 16px;
+}
+body dl {
+padding: 0;
+}
+body dl dt {
+padding: 0;
+margin-top: 16px;
+font-size: 1em;
+font-style: italic;
+font-weight: bold;
+}
+body dl dd {
+padding: 0 16px;
+margin-bottom: 16px;
+}
+body blockquote {
+padding: 0 15px;
+color: #777;
+border-left: 4px solid #ddd;
+}
+body blockquote>:first-child {
+margin-top: 0;
+}
+body blockquote>:last-child {
+margin-bottom: 0;
+}
+body table {
+display: block;
+width: 100%;
+overflow: auto;
+word-break: normal;
+word-break: keep-all;
+}
+body table th {
+font-weight: bold;
+}
+body table th,
+body table td {
+padding: 6px 13px;
+border: 1px solid #ddd;
+}
+body table tr {
+background-color: rgb(29, 31, 32);
+border-top: 1px solid #ccc;
+}
+body table tr:nth-child(2n) {
+background-color: #f8f8f8;
+}
+body img {
+max-width: 100%;
+box-sizing: content-box;
+background-color: rgb(29, 31, 32);
+}
+body code {
+padding: 0;
+padding-top: 0;
+padding-bottom: 0;
+margin: 0;
+font-size: 85%;
+background-color: rgba(0,0,0,0.04);
+border-radius: 3px;
+}
+body code:before,
+body code:after {
+letter-spacing: -0.2em;
+content: "\00a0";
+}
+body pre>code {
+padding: 0;
+margin: 0;
+font-size: 100%;
+word-break: normal;
+white-space: pre;
+background: transparent;
+border: 0;
+}
+body .highlight {
+margin-bottom: 16px;
+}
+body .highlight pre,
+body pre {
+padding: 16px;
+overflow: auto;
+font-size: 85%;
+line-height: 1.45;
+background-color: rgb(29, 31, 32);
+border-radius: 3px;
+}
+body .highlight pre {
+margin-bottom: 0;
+word-break: normal;
+}
+body pre {
+word-wrap: normal;
+}
+body pre code {
+display: inline;
+max-width: initial;
+padding: 0;
+margin: 0;
+overflow: initial;
+line-height: inherit;
+word-wrap: normal;
+background-color: transparent;
+border: 0;
+}
+body pre code:before,
+body pre code:after {
+content: normal;
+}
+body kbd {
+display: inline-block;
+padding: 3px 5px;
+font-size: 11px;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb;
+}
+body .pl-c {
+color: #969896;
+}
+body .pl-c1,
+body .pl-s .pl-v {
+color: #0086b3;
+}
+body .pl-e,
+body .pl-en {
+color: #795da3;
+}
+body .pl-s .pl-s1,
+body .pl-smi {
+color: #333;
+}
+body .pl-ent {
+color: #63a35c;
+}
+body .pl-k {
+color: #a71d5d;
+}
+body .pl-pds,
+body .pl-s,
+body .pl-s .pl-pse .pl-s1,
+body .pl-sr,
+body .pl-sr .pl-cce,
+body .pl-sr .pl-sra,
+body .pl-sr .pl-sre {
+color: #183691;
+}
+body .pl-v {
+color: #ed6a43;
+}
+body .pl-id {
+color: #b52a1d;
+}
+body .pl-ii {
+background-color: #b52a1d;
+color: #f8f8f8;
+}
+body .pl-sr .pl-cce {
+color: #63a35c;
+font-weight: bold;
+}
+body .pl-ml {
+color: #693a17;
+}
+body .pl-mh,
+body .pl-mh .pl-en,
+body .pl-ms {
+color: #1d3e81;
+font-weight: bold;
+}
+body .pl-mq {
+color: #008080;
+}
+body .pl-mi {
+color: #333;
+font-style: italic;
+}
+body .pl-mb {
+color: #333;
+font-weight: bold;
+}
+body .pl-md {
+background-color: #ffecec;
+color: #bd2c00;
+}
+body .pl-mi1 {
+background-color: #eaffea;
+color: #55a532;
+}
+body .pl-mdr {
+color: #795da3;
+font-weight: bold;
+}
+body .pl-mo {
+color: #1d3e81;
+}
+body kbd {
+display: inline-block;
+padding: 3px 5px;
+font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb;
+}
+body .task-list-item {
+list-style-type: none;
+}
+body .task-list-item+.task-list-item {
+margin-top: 3px;
+}
+body .task-list-item input {
+margin: 0 0.35em 0.25em -1.6em;
+vertical-align: middle;
+}
+body :checked+.radio-label {
+z-index: 1;
+position: relative;
+border-color: #4078c0;
+}
+</style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="scripts">Scripts</h1>
+<h1 id="sommaire">Sommaire</h1>
+<ul>
+<li><a href="#scripts">Scripts</a></li>
+<li><a href="#sommaire">Sommaire</a></li>
+<li><a href="#description">Description</a>
+<ul>
+<li><a href="#vps">VPS</a></li>
+<li><a href="#vm-cloudinit">VM-CloudInit</a>
+<ul>
+<li><a href="#pré-installation">Pré-Installation</a>
+<ul>
+<li><a href="#télécharger-les-images-des-différents-os">Télécharger les
+images des différents OS</a></li>
+</ul></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#utilisation">Utilisation</a>
+<ul>
+<li><a href="#create_vm">create_vm</a></li>
+<li><a href="#getip_vm">getip_vm</a></li>
+<li><a href="#delete_vm">delete_vm</a></li>
+</ul></li>
+<li><a href="#cas-particuliers">Cas particuliers</a>
+<ul>
+<li><a href="#sécurité">Sécurité</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#utilitaire">Utilitaire</a></li>
+<li><a href="#markdown">Markdown</a>
+<ul>
+<li><a href="#installation-1">Installation</a></li>
+<li><a href="#md2html">md2html</a>
+<ul>
+<li><a href="#utilisation-1">Utilisation</a></li>
+</ul></li>
+<li><a href="#mdf2html">mdf2html</a></li>
+<li><a href="#utilisation-2">Utilisation</a></li>
+</ul></li>
+</ul></li>
+</ul>
+<h1 id="description">Description</h1>
+<p>Dans ce dépôt git vous allez retrouver différents scripts que
+j’utilise au quotidien.</p>
+<p>Pour l’instant il n’y a que des scripts pour du Linux, je n’utilise
+pas Windows Server.</p>
+<h2 id="vps">VPS</h2>
+<p>Dans le dossier VPS se trouve des scripts que j’exécute lors de la
+création d’un VPS chez un hébergeur (OVH, Hetzner…) ou sur une VM en
+local comme sur VMWare.</p>
+<h2 id="vm-cloudinit">VM-CloudInit</h2>
+<p>Dans le dossier vm-cloudinit, vous allez retrouver une série de
+script que j’utilise pour pouvoir créer, gérer et supprimer des VM
+uniquement depuis le CLI.</p>
+<p>J’utilise virt-install, virsh et cloud-init pour tout configurer,
+pour se faire vous devez les installer.</p>
+<h3 id="pré-installation">Pré-Installation</h3>
+<p>Sur Debian :</p>
+<pre><code>sudo apt install -y --no-install-recommends qemu-system libvirt-clients libvirt-daemon-system virtinst git
+sudo adduser &lt;utilisateur&gt; libvirt</code></pre>
+<p>Pensez aussi à créer une paire de clef SSH, la clef public sera
+récupéré par le script pour pouvoir mettre vos clef sur la ou les VM.
+Par ailleurs, je recommande de créer des clef SSH ed25519, elle sont
+bien meilleurs que les clef RSA. (<img src="data:text/html,%3Chtml%3E%0A%3Chead%3E%0A%3Cmeta%20http%2Dequiv%3D%22content%2Dtype%22%20content%3D%22text%2Fhtml%3B%20charset%3Dutf%2D8%22%3E%0A%3Cmeta%20name%3D%22viewport%22%20content%3D%22width%3Ddevice%2Dwidth%2C%20initial%2Dscale%3D1%22%3E%0A%3Cstyle%20type%3Dtext%2Fcss%3Epre%7Bfont%2Dsize%3Alarge%3B%7Dtt%7Bfont%2Dsize%3Alarge%3B%7D%3C%2Fstyle%3E%0A%3Ctitle%3E%0AIntroduction%0A%3C%2Ftitle%3E%0A%3C%2Fhead%3E%0A%3Cbody%3E%0A%3Ctable%20width%3D%22100%25%22%3E%0A%20%20%3Ctr%3E%0A%20%20%20%20%3Ctd%20align%3Dleft%20bgcolor%3D%22%23AAAAFF%22%3E%3Ch1%3EEd25519%3A%20high%2Dspeed%20high%2Dsecurity%20signatures%3C%2Fh1%3E%3C%2Ftd%3E%0A%20%20%3C%2Ftr%3E%0A%3C%2Ftable%3E%0A%3Ctable%20width%3D%22100%25%22%3E%3Ctr%3E%0A%3Ctd%20width%3D%2215%25%22%20align%3Dleft%20valign%3Dtop%3E%3Ctable%20bgcolor%3D%22%23AAAAFF%22%20border%20width%3D%22100%25%22%3E%3Ctr%3E%3Ctd%20width%3D%22100%25%22%3E%3Ctable%20width%3D%22100%25%22%3E%0A%3Ctr%3E%3Ctd%20width%3D%22100%25%22%20bgcolor%3D%22%23FFFF80%22%3EIntroduction%3C%2Ftd%3E%3C%2Ftr%3E%0A%3Ctr%3E%3Ctd%20width%3D%22100%25%22%3E%3Ca%20href%3D%22software%2Ehtml%22%20style%3D%22text%2Ddecoration%3Anone%22%3ESoftware%3C%2Fa%3E%3C%2Ftd%3E%3C%2Ftr%3E%0A%3Ctr%3E%3Ctd%20width%3D%22100%25%22%3E%3Ca%20href%3D%22papers%2Ehtml%22%20style%3D%22text%2Ddecoration%3Anone%22%3EPapers%3C%2Fa%3E%3C%2Ftd%3E%3C%2Ftr%3E%0A%3C%2Ftable%3E%3C%2Ftd%3E%3C%2Ftr%3E%3C%2Ftable%3E%0A%3C%2Ftd%3E%3Ctd%20align%3Dleft%20valign%3Dtop%3E%0A%3Ch1%3EIntroduction%3C%2Fh1%3E%0AEd25519%20is%20a%20public%2Dkey%20signature%20system%0Awith%20several%20attractive%20features%3A%0A%3Cul%3E%0A%3Cli%3E%3Cb%3EFast%20single%2Dsignature%20verification%2E%3C%2Fb%3E%0AThe%20%3Ca%20href%3D%22software%2Ehtml%22%3Esoftware%3C%2Fa%3E%20takes%20only%20273364%20cycles%0Ato%20verify%20a%20signature%0Aon%20Intel%27s%20widely%20deployed%20Nehalem%2FWestmere%20lines%20of%20CPUs%2E%0A%28This%20performance%20measurement%20is%20for%20short%20messages%3B%0Afor%20very%20long%20messages%2C%20verification%20time%20is%20dominated%20by%20hashing%20time%2E%29%0ANehalem%20and%20Westmere%20include%20all%20Core%20i7%2C%20i5%2C%20and%20i3%20CPUs%20released%20between%202008%20and%202010%2C%0Aand%20most%20Xeon%20CPUs%20released%20in%20the%20same%20period%2E%0A%3Cli%3E%3Cb%3EEven%20faster%20batch%20verification%2E%3C%2Fb%3E%0AThe%20software%20performs%20a%20batch%20of%2064%20separate%20signature%20verifications%0A%28verifying%2064%20signatures%20of%2064%20messages%20under%2064%20public%20keys%29%0Ain%20only%208%2E55%20million%20cycles%2C%0Ai%2Ee%2E%2C%20under%20134000%20cycles%20per%20signature%2E%0AThe%20software%20fits%20easily%20into%20L1%20cache%2C%0Aso%20contention%20between%20cores%20is%20negligible%3A%0Aa%20quad%2Dcore%202%2E4GHz%20Westmere%20verifies%2071000%20signatures%20per%20second%2C%0Awhile%20keeping%20the%20maximum%20verification%20latency%20below%204%20milliseconds%2E%0A%3Cli%3E%3Cb%3EVery%20fast%20signing%2E%3C%2Fb%3E%0AThe%20software%20takes%20only%2087548%20cycles%20to%20sign%20a%20message%2E%0AA%20quad%2Dcore%202%2E4GHz%20Westmere%20signs%20109000%20messages%20per%20second%2E%0A%3Cli%3E%3Cb%3EFast%20key%20generation%2E%3C%2Fb%3E%0AKey%20generation%20is%20almost%20as%20fast%20as%20signing%2E%0AThere%20is%20a%20slight%20penalty%20for%20key%20generation%0Ato%20obtain%20a%20secure%20random%20number%20from%20the%20operating%20system%3B%0A%3Ctt%3E%2Fdev%2Furandom%3C%2Ftt%3E%20under%20Linux%20costs%20about%206000%20cycles%2E%0A%3Cli%3E%3Cb%3EHigh%20security%20level%2E%3C%2Fb%3E%0AThis%20system%20has%20a%202%5E128%20security%20target%3B%0Abreaking%20it%20has%20similar%20difficulty%20to%20breaking%0ANIST%20P%2D256%2C%20RSA%20with%20%7E3000%2Dbit%20keys%2C%20strong%20128%2Dbit%20block%20ciphers%2C%20etc%2E%0AThe%20best%20attacks%20known%20actually%20cost%20more%20than%202%5E140%20bit%20operations%20on%20average%2C%0Aand%20degrade%20quadratically%20in%20success%20probability%20as%20the%20number%20of%20bit%20operations%20drops%2E%0A%3Cli%3E%3Cb%3EFoolproof%20session%20keys%2E%3C%2Fb%3E%0ASignatures%20are%20generated%20deterministically%3B%0Akey%20generation%20consumes%20new%20randomness%20but%20new%20signatures%20do%20not%2E%0AThis%20is%20not%20only%20a%20speed%20feature%20but%20also%20a%20security%20feature%2C%0Adirectly%20relevant%20to%20the%20recent%20collapse%20of%20the%20Sony%20PlayStation%203%20security%20system%2E%0A%3Cli%3E%3Cb%3ECollision%20resilience%2E%3C%2Fb%3E%0AHash%2Dfunction%20collisions%20do%20not%20break%20this%20system%2E%0AThis%20adds%20a%20layer%20of%20defense%0Aagainst%20the%20possibility%20of%20weakness%20in%20the%20selected%20hash%20function%2E%0A%3Cli%3E%3Cb%3ENo%20secret%20array%20indices%2E%3C%2Fb%3E%0AThe%20software%20never%20reads%20or%20writes%20data%20from%20secret%20addresses%20in%20RAM%3B%0Athe%20pattern%20of%20addresses%20is%20completely%20predictable%2E%0AThe%20software%20is%20therefore%20immune%20to%20cache%2Dtiming%20attacks%2C%20hyperthreading%20attacks%2C%0Aand%20other%20side%2Dchannel%20attacks%20that%20rely%20on%20leakage%20of%20addresses%20through%20the%20CPU%20cache%2E%0A%3Cli%3E%3Cb%3ENo%20secret%20branch%20conditions%2E%3C%2Fb%3E%0AThe%20software%20never%20performs%20conditional%20branches%20based%20on%20secret%20data%3B%0Athe%20pattern%20of%20jumps%20is%20completely%20predictable%2E%0AThe%20software%20is%20therefore%20immune%20to%20side%2Dchannel%20attacks%0Athat%20rely%20on%20leakage%20of%20information%20through%20the%20branch%2Dprediction%20unit%2E%0A%3Cli%3E%3Cb%3ESmall%20signatures%2E%3C%2Fb%3E%0ASignatures%20fit%20into%2064%20bytes%2E%0AThese%20signatures%20are%20actually%20compressed%20versions%20of%20longer%20signatures%3B%0Athe%20times%20for%20compression%20and%20decompression%20are%20included%20in%20the%20cycle%20counts%20reported%20above%2E%0A%3Cli%3E%3Cb%3ESmall%20keys%2E%3C%2Fb%3E%0APublic%20keys%20consume%20only%2032%20bytes%2E%0AThe%20times%20for%20compression%20and%20decompression%20are%20again%20included%2E%0A%3C%2Ful%3E%0AThe%20numbers%2087548%20and%20273364%20shown%20above%0Aare%20official%20%0A%3Ca%20href%3D%22https%3A%2F%2Fbench%2Ecr%2Eyp%2Eto%22%3EeBATS%3C%2Fa%3E%0Areports%20for%20a%20Westmere%20CPU%20%28Intel%20Xeon%20E5620%2C%20%3Ctt%3Ehydra2%3C%2Ftt%3E%29%2E%0A%3Cp%3E%0AEd25519%20signatures%20are%20elliptic%2Dcurve%20signatures%2C%0Acarefully%20engineered%20at%20several%20levels%20of%20design%20and%20implementation%0Ato%20achieve%20very%20high%20speeds%20without%20compromising%20security%2E%0A%3Ch2%3EContributors%20%28alphabetical%20order%29%3C%2Fh2%3E%0A%3Ca%20href%3D%22https%3A%2F%2Fcr%2Eyp%2Eto%2Fdjb%2Ehtml%22%3EDaniel%20J%2E%20Bernstein%3C%2Fa%3E%2C%20University%20of%20Illinois%20at%20Chicago%0A%3Cp%3E%0A%3Ca%20href%3D%22http%3A%2F%2Fwww%2Enielsduif%2Enl%2F%22%3ENiels%20Duif%3C%2Fa%3E%2C%20Technische%20Universiteit%20Eindhoven%0A%3Cp%3E%0A%3Ca%20href%3D%22https%3A%2F%2Fhyperelliptic%2Eorg%2Ftanja%22%3ETanja%20Lange%3C%2Fa%3E%2C%20Technische%20Universiteit%20Eindhoven%0A%3Cp%3E%0A%3Ca%20href%3D%22http%3A%2F%2Fwww%2Ecryptojedi%2Eorg%2Fusers%2Fpeter%2F%22%3EPeter%20Schwabe%3C%2Fa%3E%2C%20National%20Taiwan%20University%0A%3Cp%3E%0A%3Ca%20href%3D%22http%3A%2F%2Fwww%2Eiis%2Esinica%2Eedu%2Etw%2Fpages%2Fbyyang%2F%22%3EBo%2DYin%20Yang%3C%2Fa%3E%2C%20Academia%20Sinica%0A%3Ch2%3EAcknowledgments%3C%2Fh2%3E%0AThis%20work%20was%20supported%0Aby%20the%20U%2ES%2E%20National%20Science%20Foundation%20under%20grant%201018836%2E%0A%22Any%20opinions%2C%20findings%2C%20and%20conclusions%20or%20recommendations%0Aexpressed%20in%20this%20material%20are%20those%20of%20the%20author%28s%29%0Aand%20do%20not%20necessarily%20reflect%20the%20views%20of%20the%20National%20Science%20Foundation%2E%22%0A%3Cp%3E%0AThis%20work%20was%20supported%20by%20the%20European%20Commission%20under%20Contract%20ICT%2D2007%2D216676%20ECRYPT%20II%2E%0A%3Cp%3E%0AThis%20work%20was%20supported%0Aby%20the%20National%20Science%20Council%2C%20National%20Taiwan%20University%0Aand%20Intel%20Corporation%20under%20Grants%20NSC99%2D2911%2DI%2D002%2D001%20and%2099%2D2218%2DE%2D001%2D007%2E%0A%3Cp%3E%0AThis%20work%20was%20supported%20by%20an%20Academia%20Sinica%20Career%20Award%2E%0A%3Cp%3E%0APart%20of%20this%20work%20was%20carried%20out%20when%20Peter%20Schwabe%20was%20employed%20by%20Academia%20Sinica%2C%20Taiwan%2E%0A%3Cp%3E%0APart%20of%20this%20work%20was%20carried%20out%20when%20Niels%20Duif%20was%20employed%20by%0ACompumatica%20secure%20networks%20BV%2C%20the%20Netherlands%2E%0A%3Ch2%3EVersion%3C%2Fh2%3E%0AThis%20is%20version%202017%2E01%2E22%20of%20the%20index%2Ehtml%20web%20page%2E%0A%3C%2Ftd%3E%3C%2Ftr%3E%3C%2Ftable%3E%0A%3C%2Fbody%3E%0A%3C%2Fhtml%3E%0A" alt="Ed25519: high-speed high-security signatures" />)</p>
+<p>Pour générer une paire de clef SSH :</p>
+<pre><code>ssh-keygen -t ed25519</code></pre>
+<p>Maintenant dans votre dossier ~/.ssh vous devez avoir deux fichiers
+distincts : id_ed25519 et id_ed25519.pub. Le script récupère le .pub</p>
+<h4 id="télécharger-les-images-des-différents-os">Télécharger les images
+des différents OS</h4>
+<p>Vous devez télécharger les différentes images des OS disponibles, par
+exemple pour Debian c’est à cet <img src="data:text/html;charset=UTF-8;charset=utf-8,%3C%21DOCTYPE%20HTML%20PUBLIC%20%22%2D%2F%2FW3C%2F%2FDTD%20HTML%203%2E2%20Final%2F%2FEN%22%3E%0A%3Chtml%3E%0A%20%3Chead%3E%0A%20%20%3Ctitle%3EIndex%20of%20%2Fimages%2Fcloud%3C%2Ftitle%3E%0A%20%20%3Clink%20rel%3D%22stylesheet%22%20href%3D%22%2Flayout%2Fautoindex%2Ecss%22%20type%3D%22text%2Fcss%22%3E%0A%3Cmeta%20name%3D%22viewport%22%20content%3D%22width%3Ddevice%2Dwidth%2C%20initial%2Dscale%3D1%22%3E%20%3C%2Fhead%3E%0A%20%3Cbody%3E%0A%3Cmeta%20http%2Dequiv%3D%22Content%2DType%22%20content%3D%22text%2Fhtml%3B%20charset%3DUTF%2D8%22%3E%0A%3Ctitle%3EDebian%20Official%20Cloud%20Images%20%2D%2D%20Getting%20Debian%20%20%2D%20www%2Edebian%2Eorg%3C%2Ftitle%3E%0A%3Clink%20rel%3D%22author%22%20href%3D%22mailto%3Awebmaster%40debian%2Eorg%22%3E%0A%3Clink%20href%3D%22https%3A%2F%2Fwww%2Edebian%2Eorg%2Fdebian%2Ecss%22%20rel%3D%22stylesheet%22%20type%3D%22text%2Fcss%22%3E%0A%3Clink%20href%3D%22https%3A%2F%2Fwww%2Edebian%2Eorg%2Fdebian%2Den%2Ecss%22%20rel%3D%22stylesheet%22%20type%3D%22text%2Fcss%22%20media%3D%22all%22%3E%0A%0A%0A%3Cdiv%20id%3D%22header%22%3E%0A%20%20%3Cdiv%20id%3D%22upperheader%22%3E%0A%20%20%20%20%3Cdiv%20id%3D%22logo%22%3E%0A%20%20%20%20%20%20%3Ca%20href%3D%22https%3A%2F%2Fwww%2Edebian%2Eorg%2F%22%20title%3D%22Debian%20Home%22%3E%3Cimg%20src%3D%22https%3A%2F%2Fwww%2Edebian%2Eorg%2FPics%2Fopenlogo%2D50%2Epng%22%20alt%3D%22Debian%22%20width%3D%2250%22%20height%3D%2261%22%3E%3C%2Fa%3E%0A%20%20%20%20%3C%2Fdiv%3E%20%3C%21%2D%2D%20end%20logo%20%2D%2D%3E%0A%20%20%20%20%3Cdiv%20id%3D%22navbar%22%3E%0A%20%20%20%20%20%20%3Cp%20class%3D%22hidecss%22%3E%3Ca%20href%3D%22%23content%22%3ESkip%20Quicknav%3C%2Fa%3E%3C%2Fp%3E%0A%20%20%20%20%20%20%3Cul%3E%0A%09%3Cli%3E%3Ca%20href%3D%22https%3A%2F%2Fwww%2Edebian%2Eorg%2Fintro%2Fabout%22%3EAbout%20Debian%3C%2Fa%3E%3C%2Fli%3E%0A%09%3Cli%3E%3Ca%20href%3D%22https%3A%2F%2Fwww%2Edebian%2Eorg%2Fdistrib%2F%22%3EGetting%20Debian%3C%2Fa%3E%3C%2Fli%3E%0A%09%3Cli%3E%3Ca%20href%3D%22https%3A%2F%2Fwww%2Edebian%2Eorg%2Fsupport%22%3ESupport%3C%2Fa%3E%3C%2Fli%3E%0A%09%3Cli%3E%3Ca%20href%3D%22https%3A%2F%2Fwww%2Edebian%2Eorg%2Fdevel%2F%22%3EDevelopers%27%20Corner%3C%2Fa%3E%3C%2Fli%3E%0A%20%20%20%20%20%20%3C%2Ful%3E%0A%20%20%20%20%3C%2Fdiv%3E%20%3C%21%2D%2D%20end%20navbar%20%2D%2D%3E%0A%20%20%3C%2Fdiv%3E%20%3C%21%2D%2D%20end%20upperheader%20%2D%2D%3E%0A%20%20%3Ch1%3EDebian%20Official%20Cloud%20Images%3C%2Fh1%3E%0A%0A%20%20%3Cp%3E%0A%20%20%20%20In%20this%20page%20you%20can%20find%20the%20Debian%20cloud%20images%20provided%20by%20the%20Debian%20Cloud%20Team%20for%20some%20cloud%20providers%2E%0A%20%20%20%20End%20users%20do%20not%20need%20to%20download%20these%20images%2C%20as%20they%20are%0A%20%20%20%20usually%20provided%20by%20their%20cloud%20providers%2E%0A%20%20%20%20For%20now%20we%20are%20supporting%3A%0A%0A%20%20%20%20%3Cul%3E%0A%20%20%20%20%20%20%3Cli%3E%3Ci%3EAmazon%20EC2%20%28amd64%2C%20arm64%3B%20Also%20see%20%3Ca%20href%3D%22https%3A%2F%2Fwiki%2Edebian%2Eorg%2FCloud%2FAmazonEC2Image%22%3Ethe%20wiki%3C%2Fa%3E%20and%20the%20%3Ca%20href%3D%22https%3A%2F%2Faws%2Eamazon%2Ecom%2Fmarketplace%2Fseller%2Dprofile%3Fid%3D4d4d4e5f%2Dc474%2D49f2%2D8b18%2D94de9d43e2c0%26ref%3Ddtl%5FB0859NK4HC%22%3EAWS%20Marketplace%20listing%3C%2Fa%3E%3C%2Fi%3E%29%3C%2Fli%3E%0A%20%20%20%20%20%20%3Cli%3E%3Ci%3EMicrosoft%20Azure%20%28amd64%3B%20Also%20see%20%3Ca%20href%3D%22https%3A%2F%2Fwiki%2Edebian%2Eorg%2FCloud%2FMicrosoftAzure%22%3Ethe%20wiki%3C%2Fa%3E%20and%20%3Ca%20href%3D%22https%3A%2F%2Fazuremarketplace%2Emicrosoft%2Ecom%2Fen%2Dus%2Fmarketplace%2Fapps%3Fsearch%3Ddebian%26page%3D1%22%3EThe%20Azure%20Marketplace%3C%2Fa%3E%3C%2Fi%3E%29%3C%2Fli%3E%0A%20%20%20%20%20%20%3Cli%3E%3Ci%3EOpenStack%20%28amd64%2C%20arm64%2C%20ppc64el%3B%20two%0A%20%20%20%20%20%20flavours%20%3Ca%20href%3D%22https%3A%2F%2Fcloud%2Edebian%2Eorg%2Fcdimage%2Fcloud%2FOpenStack%2F%22%3Eusing%0A%20%20%20%20%20%20openstack%2Ddebian%2Dimages%3C%2Fa%3E%20and%20using%20the%20%3Ca%20href%3D%22https%3A%2F%2Fcloud%2Edebian%2Eorg%2Fcdimage%2Fcloud%2Fbullseye%22%3Etoolchain%3C%2Fa%3E%20from%20the%0A%20%20%20%20%20%20cloud%20team%2E%0A%09%20%20Also%20see%20%3Ca%20href%3D%22https%3A%2F%2Fwiki%2Edebian%2Eorg%2FOpenStack%22%3Ethe%20wiki%3C%2Fa%3E%3C%2Fi%3E%29%3C%2Fli%3E%0A%20%20%20%20%20%20%3Cli%3E%3Ci%3EPlain%20VM%20%28amd64%29%3C%2Fi%3E%2C%20suitable%20for%20use%20with%20QEMU%3C%2Fli%3E%0A%20%20%20%20%3C%2Ful%3E%0A%0A%0A%20%20%20%20From%20buster%20on%20we%20provide%20images%20for%20different%20cloud%20providers%20in%0A%20%20%20%20one%20directory%2E%20There%20we%20use%20file%20names%20like%20this%3A%0A%0A%20%20%20%20%3Cul%3E%0A%20%20%20%20%20%20%3Cli%3E%3Ctt%3Edebian%2D11%2Dgeneric%2Dppc64el%2Ddaily%2D20210425%2D618%2Eqcow2%3C%2Ftt%3E%3C%2Fli%3E%0A%20%20%20%20%20%20%3Cli%3E%3Ctt%3Edebian%2D11%2Dgenericcloud%2Damd64%2Ddaily%2D20210425%2D618%2Eqcow2%3C%2Ftt%3E%3C%2Fli%3E%0A%20%20%20%20%20%20%3Cli%3E%3Ctt%3Edebian%2D11%2Dec2%2Darm64%2Ddaily%2D20210425%2D618%2Etar%2Exz%3C%2Ftt%3E%3C%2Fli%3E%0A%20%20%20%20%3C%2Ful%3E%0A%0A%20%20%20%20%3Cul%3E%0A%20%20%3Cli%3E%3Ci%3Eazure%3C%2Fi%3E%3A%20Optimized%20for%20the%20Microsoft%20Azure%20environment%3C%2Fli%3E%0A%20%20%3Cli%3E%3Ci%3Eec2%3C%2Fi%3E%3A%20Optimized%20for%20the%20Amazon%20EC2%3C%2Fli%3E%0A%20%20%3Cli%3E%3Ci%3Egeneric%3C%2Fi%3E%3A%20Should%20run%20in%20any%20environment%20using%20cloud%2Dinit%2C%0A%20%20for%20e%2Eg%2E%20OpenStack%2C%20DigitalOcean%20and%20also%20on%20bare%20metal%2E%3C%2Fli%3E%0A%20%20%3Cli%3E%3Ci%3Egenericcloud%3C%2Fi%3E%3A%20Similar%20to%20generic%2E%20Should%20run%20in%20any%0A%20%20virtualised%20environment%2E%20Is%20smaller%20than%20%60generic%60%20by%20excluding%0A%20%20drivers%20for%20physical%20hardware%2E%3C%2Fli%3E%0A%20%20%3Cli%3E%3Ci%3Enocloud%3C%2Fi%3E%3A%20Mostly%20useful%20for%20testing%20the%20build%20process%0A%20%20%20itself%2E%20Doesn%27t%20have%20cloud%2Dinit%20installed%2C%20but%20instead%20allows%20root%0A%20%20%20login%20without%20a%20password%2E%20%3C%2Fli%3E%0A%20%20%20%3C%2Ful%3E%0A%0A%20%20%3C%2Fp%3E%0A%0A%20%20%3Ch2%3EHow%20to%20upload%20to%20OpenStack%3F%3C%2Fh2%3E%0A%0A%20%20%3Cp%3EOnce%20you%20have%20downloaded%20the%20image%2C%20you%20would%20typically%20need%20to%20upload%20it%20to%0A%20%20Glance%2C%20using%20a%20command%20like%20this%20one%20%28example%20for%20amd64%29%3A%3C%2Fp%3E%0A%0A%20%20%3Cpre%3Eopenstack%20image%20create%20%5C%0A%20%20%20%20%2D%2Dcontainer%2Dformat%20bare%20%5C%0A%20%20%20%20%2D%2Ddisk%2Dformat%20qcow2%20%5C%0A%20%20%20%20%2D%2Dproperty%20hw%5Fdisk%5Fbus%3Dscsi%20%5C%0A%20%20%20%20%2D%2Dproperty%20hw%5Fscsi%5Fmodel%3Dvirtio%2Dscsi%20%5C%0A%20%20%20%20%2D%2Dproperty%20os%5Ftype%3Dlinux%20%5C%0A%20%20%20%20%2D%2Dproperty%20os%5Fdistro%3Ddebian%20%5C%0A%20%20%20%20%2D%2Dproperty%20os%5Fadmin%5Fuser%3Ddebian%20%5C%0A%20%20%20%20%2D%2Dproperty%20os%5Fversion%3D%2710%2E9%2E1%27%20%5C%0A%20%20%20%20%2D%2Dpublic%20%5C%0A%20%20%20%20%2D%2Dfile%20debian%2D10%2Dgeneric%2Darm64%2D20210329%2D591%2Eqcow2%20%5C%0A%20%20%20%20debian%2D10%2Dgeneric%2Darm64%2D20210329%2D591%2Eqcow2%3C%2Fpre%3E%0A%0A%20%20%3Cp%3ENote%20that%20%3Ci%3Ehw%5Fdisk%5Fbus%3Dscsi%3C%2Fi%3E%20and%20%3Ci%3Ehw%5Fscsi%5Fmodel%3Dvirtio%2Dscsi%3C%2Fi%3E%0A%20%20select%20the%20virtio%2Dscsi%20driver%20instead%20of%20the%20virtio%2Dblk%2C%20which%20is%20nicer%0A%20%20%28on%20older%20versions%20of%20Qemu%2C%20virtio%2Dblk%20doesn%27t%20have%20the%20FSTRIM%20feature%2C%0A%20%20for%20example%29%2E%20Also%2C%20the%20properties%20%3Ci%3Eos%5Ftype%2C%20os%5Fdistro%2C%20os%5Fversion%20and%0A%20%20os%5Fadmin%5Fuser%3C%2Fi%3E%20are%20OpenStack%20standards%20as%20per%0A%20%20%3Ca%20href%3D%22https%3A%2F%2Fdocs%2Eopenstack%2Eorg%2Fglance%2Flatest%2Fadmin%2Fuseful%2Dimage%2Dproperties%2Ehtml%22%3Ethis%0A%20%20document%3C%2Fa%3E%2E%20It%20is%20best%20practice%20to%20set%20them%2C%20especialy%20on%20public%20clouds%2C%0A%20%20to%20allow%20your%20cloud%20users%20to%20filter%20the%20image%20list%20to%20search%20what%20they%20need%2C%0A%20%20for%20example%20using%20a%20command%20like%20this%20one%3A%0A%0A%20%20%3Cpre%3Eopenstack%20image%20list%20%2D%2Dproperty%20os%5Fdistro%3Ddebian%3C%2Fpre%3E%0A%0A%20%20%3Ch2%3EHow%20can%20I%20verify%20my%20download%20is%20correct%20and%20exactly%20what%20has%20been%0A%20%20%20%20created%20by%20Debian%3F%3C%2Fh2%3E%0A%0A%20%20%3Cp%3EFor%20the%20current%20official%20images%20%28in%20the%20per%2Ddistribution%0A%20%20%20%20directories%29%2C%20the%20safest%20method%20is%20to%20download%20the%20image%20and%0A%20%20%20%20checksum%20files%20over%20TLS%20from%20%3Ctt%3Ecloud%2Edebian%2Eorg%3C%2Ftt%3E%20or%20%3Ctt%3Ecdimage%2Edebian%2Eorg%3C%2Ftt%3E%2E%0A%20%20%20%20These%20names%20support%20DNSSEC%2C%20so%20a%20validating%20resolver%20can%20ensure%0A%20%20%20%20that%20a%20client%20is%20connected%20to%20a%20Debian%20host%2E%20%20And%20TLS%20ensures%20that%0A%20%20%20%20the%20data%20is%20not%20manipulated%20in%20flight%2E%3C%2Fp%3E%0A%0A%20%20%3Cp%3EThe%20legacy%20OpenStack%20images%20%28in%20the%20%3Ctt%3EOpenStack%2F%3C%2Ftt%3E%20directory%29%0A%20%20%20%20provide%20checksums%20and%20signatures%2E%20%20See%20SHA512SUMS%2Esign%2C%20etc%2E%20For%0A%20%20%20%20more%20information%20about%20the%20verification%20steps%2C%20read%20the%20%3Ca%20href%3D%22https%3A%2F%2Fwww%2Edebian%2Eorg%2FCD%2Fverify%22%3Everification%20guide%3C%2Fa%3E%3C%2Fp%3E%0A%0A%20%20%3Cp%3EIf%20you%27re%20interested%20in%20contributing%20checksum%20signatures%20for%20the%0A%20%20%20%20current%20images%2C%20please%20reach%20us%20on%20the%20list%3A%20%3Cb%3Edebian%2Dcloud%20at%20lists%2Edebian%2Eorg%3C%2Fb%3E%2E%3C%2Fp%3E%0A%0A%20%20%3Ch2%3EOther%20questions%3F%3C%2Fh2%3E%0A%0A%20%20%3Cp%3EQuestions%20can%20be%20forwarded%20to%20the%20Debian%20Cloud%20Team%3A%20%3Cb%3Edebian%2Dcloud%20at%20lists%2Edebian%2Eorg%3C%2Fb%3E%2E%3C%2Fp%3E%0A%0A%3C%2Fdiv%3E%0A%20%20%3Ctable%20id%3D%22indexlist%22%3E%0A%20%20%20%3Ctr%20class%3D%22indexhead%22%3E%3Cth%20class%3D%22indexcolicon%22%3E%3Cimg%20src%3D%22%2Ficons2%2Fblank%2Epng%22%20alt%3D%22%5BICO%5D%22%3E%3C%2Fth%3E%3Cth%20class%3D%22indexcolname%22%3E%3Ca%20href%3D%22%3FC%3DN%3BO%3DD%22%3EName%3C%2Fa%3E%3C%2Fth%3E%3Cth%20class%3D%22indexcollastmod%22%3E%3Ca%20href%3D%22%3FC%3DM%3BO%3DA%22%3ELast%20modified%3C%2Fa%3E%3C%2Fth%3E%3Cth%20class%3D%22indexcolsize%22%3E%3Ca%20href%3D%22%3FC%3DS%3BO%3DA%22%3ESize%3C%2Fa%3E%3C%2Fth%3E%3C%2Ftr%3E%0A%20%20%20%3Ctr%20class%3D%22indexbreakrow%22%3E%3Cth%20colspan%3D%224%22%3E%3Chr%3E%3C%2Fth%3E%3C%2Ftr%3E%0A%20%20%20%3Ctr%20class%3D%22even%22%3E%3Ctd%20class%3D%22indexcolicon%22%3E%3Ca%20href%3D%22%2Fimages%2F%22%3E%3Cimg%20src%3D%22%2Ficons2%2Fgo%2Dprevious%2Epng%22%20alt%3D%22%5BPARENTDIR%5D%22%3E%3C%2Fa%3E%3C%2Ftd%3E%3Ctd%20class%3D%22indexcolname%22%3E%3Ca%20href%3D%22%2Fimages%2F%22%3EParent%20Directory%3C%2Fa%3E%3C%2Ftd%3E%3Ctd%20class%3D%22indexcollastmod%22%3E%26nbsp%3B%3C%2Ftd%3E%3Ctd%20class%3D%22indexcolsize%22%3E%20%20%2D%20%3C%2Ftd%3E%3C%2Ftr%3E%0A%20%20%20%3Ctr%20class%3D%22odd%22%3E%3Ctd%20class%3D%22indexcolicon%22%3E%3Ca%20href%3D%22OpenStack%2F%22%3E%3Cimg%20src%3D%22%2Ficons2%2Ffolder%2Epng%22%20alt%3D%22%5BDIR%5D%22%3E%3C%2Fa%3E%3C%2Ftd%3E%3Ctd%20class%3D%22indexcolname%22%3E%3Ca%20href%3D%22OpenStack%2F%22%3EOpenStack%2F%3C%2Fa%3E%3C%2Ftd%3E%3Ctd%20class%3D%22indexcollastmod%22%3E2023%2D12%2D26%2017%3A29%20%20%3C%2Ftd%3E%3Ctd%20class%3D%22indexcolsize%22%3E%20%20%2D%20%3C%2Ftd%3E%3C%2Ftr%3E%0A%20%20%20%3Ctr%20class%3D%22even%22%3E%3Ctd%20class%3D%22indexcolicon%22%3E%3Ca%20href%3D%22bookworm%2Dbackports%2F%22%3E%3Cimg%20src%3D%22%2Ficons2%2Ffolder%2Epng%22%20alt%3D%22%5BDIR%5D%22%3E%3C%2Fa%3E%3C%2Ftd%3E%3Ctd%20class%3D%22indexcolname%22%3E%3Ca%20href%3D%22bookworm%2Dbackports%2F%22%3Ebookworm%2Dbackports%2F%3C%2Fa%3E%3C%2Ftd%3E%3Ctd%20class%3D%22indexcollastmod%22%3E2023%2D07%2D29%2008%3A03%20%20%3C%2Ftd%3E%3Ctd%20class%3D%22indexcolsize%22%3E%20%20%2D%20%3C%2Ftd%3E%3C%2Ftr%3E%0A%20%20%20%3Ctr%20class%3D%22odd%22%3E%3Ctd%20class%3D%22indexcolicon%22%3E%3Ca%20href%3D%22bookworm%2F%22%3E%3Cimg%20src%3D%22%2Ficons2%2Ffolder%2Epng%22%20alt%3D%22%5BDIR%5D%22%3E%3C%2Fa%3E%3C%2Ftd%3E%3Ctd%20class%3D%22indexcolname%22%3E%3Ca%20href%3D%22bookworm%2F%22%3Ebookworm%2F%3C%2Fa%3E%3C%2Ftd%3E%3Ctd%20class%3D%22indexcollastmod%22%3E2023%2D12%2D11%2003%3A08%20%20%3C%2Ftd%3E%3Ctd%20class%3D%22indexcolsize%22%3E%20%20%2D%20%3C%2Ftd%3E%3C%2Ftr%3E%0A%20%20%20%3Ctr%20class%3D%22even%22%3E%3Ctd%20class%3D%22indexcolicon%22%3E%3Ca%20href%3D%22bullseye%2Dbackports%2F%22%3E%3Cimg%20src%3D%22%2Ficons2%2Ffolder%2Epng%22%20alt%3D%22%5BDIR%5D%22%3E%3C%2Fa%3E%3C%2Ftd%3E%3Ctd%20class%3D%22indexcolname%22%3E%3Ca%20href%3D%22bullseye%2Dbackports%2F%22%3Ebullseye%2Dbackports%2F%3C%2Fa%3E%3C%2Ftd%3E%3Ctd%20class%3D%22indexcollastmod%22%3E2023%2D10%2D13%2020%3A34%20%20%3C%2Ftd%3E%3Ctd%20class%3D%22indexcolsize%22%3E%20%20%2D%20%3C%2Ftd%3E%3C%2Ftr%3E%0A%20%20%20%3Ctr%20class%3D%22odd%22%3E%3Ctd%20class%3D%22indexcolicon%22%3E%3Ca%20href%3D%22bullseye%2F%22%3E%3Cimg%20src%3D%22%2Ficons2%2Ffolder%2Epng%22%20alt%3D%22%5BDIR%5D%22%3E%3C%2Fa%3E%3C%2Ftd%3E%3Ctd%20class%3D%22indexcolname%22%3E%3Ca%20href%3D%22bullseye%2F%22%3Ebullseye%2F%3C%2Fa%3E%3C%2Ftd%3E%3Ctd%20class%3D%22indexcollastmod%22%3E2023%2D10%2D13%2020%3A15%20%20%3C%2Ftd%3E%3Ctd%20class%3D%22indexcolsize%22%3E%20%20%2D%20%3C%2Ftd%3E%3C%2Ftr%3E%0A%20%20%20%3Ctr%20class%3D%22even%22%3E%3Ctd%20class%3D%22indexcolicon%22%3E%3Ca%20href%3D%22buster%2Dbackports%2F%22%3E%3Cimg%20src%3D%22%2Ficons2%2Ffolder%2Epng%22%20alt%3D%22%5BDIR%5D%22%3E%3C%2Fa%3E%3C%2Ftd%3E%3Ctd%20class%3D%22indexcolname%22%3E%3Ca%20href%3D%22buster%2Dbackports%2F%22%3Ebuster%2Dbackports%2F%3C%2Fa%3E%3C%2Ftd%3E%3Ctd%20class%3D%22indexcollastmod%22%3E2023%2D09%2D17%2019%3A37%20%20%3C%2Ftd%3E%3Ctd%20class%3D%22indexcolsize%22%3E%20%20%2D%20%3C%2Ftd%3E%3C%2Ftr%3E%0A%20%20%20%3Ctr%20class%3D%22odd%22%3E%3Ctd%20class%3D%22indexcolicon%22%3E%3Ca%20href%3D%22buster%2F%22%3E%3Cimg%20src%3D%22%2Ficons2%2Ffolder%2Epng%22%20alt%3D%22%5BDIR%5D%22%3E%3C%2Fa%3E%3C%2Ftd%3E%3Ctd%20class%3D%22indexcolname%22%3E%3Ca%20href%3D%22buster%2F%22%3Ebuster%2F%3C%2Fa%3E%3C%2Ftd%3E%3Ctd%20class%3D%22indexcollastmod%22%3E2023%2D09%2D17%2019%3A59%20%20%3C%2Ftd%3E%3Ctd%20class%3D%22indexcolsize%22%3E%20%20%2D%20%3C%2Ftd%3E%3C%2Ftr%3E%0A%20%20%20%3Ctr%20class%3D%22even%22%3E%3Ctd%20class%3D%22indexcolicon%22%3E%3Ca%20href%3D%22sid%2F%22%3E%3Cimg%20src%3D%22%2Ficons2%2Ffolder%2Epng%22%20alt%3D%22%5BDIR%5D%22%3E%3C%2Fa%3E%3C%2Ftd%3E%3Ctd%20class%3D%22indexcolname%22%3E%3Ca%20href%3D%22sid%2F%22%3Esid%2F%3C%2Fa%3E%3C%2Ftd%3E%3Ctd%20class%3D%22indexcollastmod%22%3E2019%2D07%2D18%2010%3A34%20%20%3C%2Ftd%3E%3Ctd%20class%3D%22indexcolsize%22%3E%20%20%2D%20%3C%2Ftd%3E%3C%2Ftr%3E%0A%20%20%20%3Ctr%20class%3D%22odd%22%3E%3Ctd%20class%3D%22indexcolicon%22%3E%3Ca%20href%3D%22stretch%2Dbackports%2F%22%3E%3Cimg%20src%3D%22%2Ficons2%2Ffolder%2Epng%22%20alt%3D%22%5BDIR%5D%22%3E%3C%2Fa%3E%3C%2Ftd%3E%3Ctd%20class%3D%22indexcolname%22%3E%3Ca%20href%3D%22stretch%2Dbackports%2F%22%3Estretch%2Dbackports%2F%3C%2Fa%3E%3C%2Ftd%3E%3Ctd%20class%3D%22indexcollastmod%22%3E2019%2D07%2D18%2010%3A40%20%20%3C%2Ftd%3E%3Ctd%20class%3D%22indexcolsize%22%3E%20%20%2D%20%3C%2Ftd%3E%3C%2Ftr%3E%0A%20%20%20%3Ctr%20class%3D%22even%22%3E%3Ctd%20class%3D%22indexcolicon%22%3E%3Ca%20href%3D%22stretch%2F%22%3E%3Cimg%20src%3D%22%2Ficons2%2Ffolder%2Epng%22%20alt%3D%22%5BDIR%5D%22%3E%3C%2Fa%3E%3C%2Ftd%3E%3Ctd%20class%3D%22indexcolname%22%3E%3Ca%20href%3D%22stretch%2F%22%3Estretch%2F%3C%2Fa%3E%3C%2Ftd%3E%3Ctd%20class%3D%22indexcollastmod%22%3E2019%2D07%2D18%2010%3A40%20%20%3C%2Ftd%3E%3Ctd%20class%3D%22indexcolsize%22%3E%20%20%2D%20%3C%2Ftd%3E%3C%2Ftr%3E%0A%20%20%20%3Ctr%20class%3D%22odd%22%3E%3Ctd%20class%3D%22indexcolicon%22%3E%3Ca%20href%3D%22trixie%2F%22%3E%3Cimg%20src%3D%22%2Ficons2%2Ffolder%2Epng%22%20alt%3D%22%5BDIR%5D%22%3E%3C%2Fa%3E%3C%2Ftd%3E%3Ctd%20class%3D%22indexcolname%22%3E%3Ca%20href%3D%22trixie%2F%22%3Etrixie%2F%3C%2Fa%3E%3C%2Ftd%3E%3Ctd%20class%3D%22indexcollastmod%22%3E2023%2D07%2D25%2007%3A43%20%20%3C%2Ftd%3E%3Ctd%20class%3D%22indexcolsize%22%3E%20%20%2D%20%3C%2Ftd%3E%3C%2Ftr%3E%0A%20%20%20%3Ctr%20class%3D%22indexbreakrow%22%3E%3Cth%20colspan%3D%224%22%3E%3Chr%3E%3C%2Fth%3E%3C%2Ftr%3E%0A%3C%2Ftable%3E%0A%3Caddress%3EApache%2F2%2E4%2E58%20%28Unix%29%20Server%20at%20cloud%2Edebian%2Eorg%20Port%20443%3C%2Faddress%3E%0A%3C%2Fbody%3E%3C%2Fhtml%3E%0A" alt="adresse" /></p>
+<p>Après ça, vous devez renommer votre fichier, par exemple pour Debian
+: debian-base.qcow2. Car dans mon script create_vm, j’utilise des images
+avec cette base : NOMOS-base.qcow2.</p>
+<h3 id="installation">Installation</h3>
+<p>Maintenant, vous pouvez installer les différents scripts à l’aide de
+ces commandes :</p>
+<pre><code>git clone https://git.patchli.fr/patch/scripts
+cd scripts
+cp vm-cloudinit/* /usr/bin/
+chmod +x /usr/bin/create_vm /usr/bin/getip_vm /usr/bin/delete_vm</code></pre>
+<p>Vous pouvez maintenant utiliser les commandes create_vm, getip_vm et
+delete_vm !</p>
+<h3 id="utilisation">Utilisation</h3>
+<h4 id="create_vm">create_vm</h4>
+<p>La commande create_vm se présente de cette manière :</p>
+<pre><code>Entrer le nom de la VM: prout # On rentre le nom de sa VM
+Choisir un OS: # On choisis un OS
+1) Archlinux
+2) Debian
+3) Fedora
+4) Ubuntu
+#? 2 # Là par exemple j&#39;ai mis Debian
+Choisir la taille du stockage: # On choisis son espace de stockage
+1) 10G
+2) 20G
+3) 30G
+4) Personnaliser # On peut aussi le personnaliser, donc on rentre la valeur qu&#39;on veut par exemple 600 (c&#39;est beaucoup)
+#? 1 # Dans mon cas j&#39;ai pris 10Go
+Using default --name prout # Puis la VM se fait toute seule
+WARNING  Using --osinfo generic, VM performance may suffer. Specify an accurate OS for optimal results.
+
+Starting install...
+Allocating &#39;prout.qcow2&#39;                                      |    0 B  00:00 ... 
+Creating domain...                                          |    0 B  00:00     
+Domain creation completed. # Oh c&#39;est fini !</code></pre>
+<p>Maintenant on peut SSH dans notre VM :</p>
+<pre><code>ssh prout</code></pre>
+<h4 id="getip_vm">getip_vm</h4>
+<pre><code>getip_vm &lt;nom de la vm&gt;
+Exemple : 
+
+getip_vm debian # Notre commande
+192.168.122.163 # La sortie</code></pre>
+<h4 id="delete_vm">delete_vm</h4>
+<pre><code>delete_vm test
+Domain &#39;test&#39; destroyed
+
+Domain &#39;test&#39; has been undefined
+
+La VM test a bien été supprimée</code></pre>
+<h3 id="cas-particuliers">Cas particuliers</h3>
+<p>Faites attention à certaines choses, dans le cas où vous avez déjà un
+hôte dans votre fichier ~/.ssh/config, pensez à sois changer le nom de
+votre VM, sois changer le nom d’un des hôtes dans votre fichier de
+config. Si cet hôte déjà présent dans le fichier détient le même nom que
+celui de la VM, vous ne pourrez pas vous connecter à l’un nis à
+l’autre</p>
+<p>Pareil, si vous avez un utilisateur global pour tout vos hôtes que
+vous avez paramétrer de cette manière :</p>
+<pre><code>Host *
+    User patch</code></pre>
+<p>Vous devez soit retirer le paramètre global pour vous connecter à la
+VM, soit au moment de la création de la VM, paramétrer celle-ci pour que
+l’utilisateur dans la VM ait le même nom d’utilisateur global comme dans
+le SSH config.</p>
+<h4 id="sécurité">Sécurité</h4>
+<p>Attention, par défaut dans les configurations cloud-init, je défini
+un mot de passe par défaut qui est le même que le nom d’utilisateur
+qu’est défini lors de la création de la VM. Dans un cas où celle-ci est
+utilisée sur un serveur “cloud”, et pas en local dans un cas de test par
+exemple, veillez à supprimer cette ligne dans chaque configuration
+cloud-init :</p>
+<pre><code>password: ${username}</code></pre>
+<p>Si la VM est en local/dans un réseau fermé, c’est pas grave vous
+pouvez laisser ça tel quel.</p>
+<h2 id="utilitaire">Utilitaire</h2>
+<p>Dans ce dossier se trouve des scripts qui peuvent m’être utile
+parfois.</p>
+<h2 id="markdown">Markdown</h2>
+<p>Dans ce dossier se trouve différents scripts que j’utilise lié au
+Markdown.</p>
+<h3 id="installation-1">Installation</h3>
+<p>Pour installer ces scripts, vous devez exécuter ces commandes après
+avoir cloner le dépôt scripts :</p>
+<pre><code>sudo cp markdown/* /usr/bin/ &amp;&amp; sudo chmod +x /usr/bin/{md2html,mdf2html}
+mkdir ~/.config/md2html &amp;&amp; cp markdown/github.css ~/.config/md2html/github.css</code></pre>
+<h3 id="md2html">md2html</h3>
+<p>Ce script utilise Pandoc pour généré un fichier HTML que j’ouvre
+ensuite dans Firefox, vous devez avoir Pandoc et Firefox d’installer sur
+votre système pour pouvoir l’utiliser, sinon vous pouvez aussi modifier
+le script pour que celui-ci l’ouvre dans un autre navigateur (Ex :
+Chrome).</p>
+<h4 id="utilisation-1">Utilisation</h4>
+<pre><code>md2html README.md README.html</code></pre>
+<p>Cela donne README.html</p>
+<h3 id="mdf2html">mdf2html</h3>
+<p>Ce script utilise la même base que md2html, sauf qu’il fait une
+boucle dans le dossier dans lequel il est pour générer tout les fichiers
+Markdown en HTML.</p>
+<h3 id="utilisation-2">Utilisation</h3>
+<pre><code>mdf2html</code></pre>
+<p>Il vient tout seul aller chercher dans le dossier les fichiers
+Markdown et les convertis à l’aide de md2html.</p>
+</body>
+</html>

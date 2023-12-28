@@ -22,7 +22,7 @@
     - [md2html](#md2html)
       - [Utilisation](#utilisation-1)
     - [mdf2html](#mdf2html)
-    - [Utilisation](#utilisation-2)
+      - [Utilisation](#utilisation-2)
 
 # Description
 
@@ -193,7 +193,7 @@ Cela donne README.html
 
 Ce script utilise la même base que md2html, sauf qu'il fait une boucle dans le dossier dans lequel il est pour générer tout les fichiers Markdown en HTML.
 
-### Utilisation
+#### Utilisation
 
 ```
 mdf2html
