@@ -1,2 +1,3 @@
 #!/bin/bash
 pandoc -t revealjs -s "$1" -o "$2"
+firefox $2

@@ -23,6 +23,10 @@
       - [Utilisation](#utilisation-1)
     - [mdf2html](#mdf2html)
       - [Utilisation](#utilisation-2)
+    - [md2slides](#md2slides)
+      - [Utilisation](#utilisation-3)
+    - [mdf2slides](#mdf2slides)
+      - [Utilisation](#utilisation-4)
 
 # Description
 
@@ -200,3 +204,49 @@ mdf2html
 ```
 
 Il vient tout seul aller chercher dans le dossier les fichiers Markdown et les convertis à l'aide de md2html.
+
+### md2slides
+
+Ce script permet de transformer des fichier Markdown en slide en utilisant revealjs.
+
+#### Utilisation
+
+Exemple de fichier Markdown à utiliser en slide : 
+
+```markdown
+# Sujet
+
+# Sommaire
+
+- [Blabla1](#Blabla1)
+- [Blabla2](#Blabla2)
+
+# Blabla1
+
+- Oh ça fait beaucoup de blabla
+
+# Blabla2
+
+- Encore plus de blabla
+
+# Merci de m'avoir écouter
+
+# Des questions ?
+```
+
+Puis ensuite vous convertissez votre fichier Markdown en slide :
+
+```
+md2slides MaPresentation.md MaPresentation.html
+```
+
+### mdf2slides
+
+Ce script fonctionne exactement de la même que mdf2html sauf que celui-ci fait des slides 
+
+#### Utilisation
+
+```
+mdf2slides
+```
+
