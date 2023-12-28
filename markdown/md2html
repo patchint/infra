@@ -1,0 +1,5 @@
+#!/bin/bash
+pandoc "$1" --embed-resources --standalone \
+         --highlight-style=haddock \
+         --css=/home/$USER/.config/md2html/github.css --output="$2"
+firefox $2
