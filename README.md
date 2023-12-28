@@ -6,7 +6,7 @@ Pour l'instant il n'y a que des scripts pour du Linux, je n'utilise pas Windows 
 
 ## VPS
 
-Dans le dossier VPS se trouve des scripts que j'exécute de la création d'un VPS chez un hébergeur (OVH, Hetzner...) ou sur une VM en local comme sur VMWare.
+Dans le dossier VPS se trouve des scripts que j'exécute lors de la création d'un VPS chez un hébergeur (OVH, Hetzner...) ou sur une VM en local comme sur VMWare.
 
 ## VM-CloudInit
 
@@ -24,7 +24,7 @@ sudo adduser <utilisateur> libvirt
 ```
 
 Pensez aussi à créer une paire de clef SSH, la clef public sera récupéré par le script pour pouvoir mettre vos clef sur la ou les VM. 
-Par ailleurs, je recommande de créer des clef SSH ed25519, elle sont bien meilleurs que les clef RSA. ([Ed25519: high-speed high-security signatures](https://ed25519.cr.yp.to/))
+Par ailleurs, je recommande de créer des clef SSH ed25519, elle sont bien meilleurs que les clef RSA. (![Ed25519: high-speed high-security signatures](https://ed25519.cr.yp.to/))
 
 Pour générer une paire de clef SSH : 
 
@@ -37,7 +37,7 @@ Maintenant dans votre dossier ~/.ssh vous devez avoir deux fichiers distincts : 
 
 #### Télécharger les images des différents OS
 
-Vous devez télécharger les différentes images des OS disponibles, par exemple pour Debian c'est à cet [adresse](https://cloud.debian.org/images/cloud/)
+Vous devez télécharger les différentes images des OS disponibles, par exemple pour Debian c'est à cet ![adresse](https://cloud.debian.org/images/cloud/)
 
 Après ça, vous devez renommer votre fichier, par exemple pour Debian : debian-base.qcow2. Car dans mon script create_vm, j'utilise des images avec cette base : NOMOS-base.qcow2.
 
@@ -121,7 +121,7 @@ Host *
     User patch
 ```
 
-Vous devez sois retirer votre paramètre pour vous connecter à la VM, sois au moment de la création de la VM, paramétrer celle-ci pour que l'utilisateur dans la VM ait le même nom d'utilisateur global de la configuration SSH.
+Vous devez soit retirer le paramètre global pour vous connecter à la VM, soit au moment de la création de la VM, paramétrer celle-ci pour que l'utilisateur dans la VM ait le même nom d'utilisateur global comme dans le SSH config.
 
 #### Sécurité
 
@@ -132,7 +132,7 @@ Dans un cas où celle-ci est utilisée sur un serveur "cloud", et pas en local d
 password: ${username}
 ```
 
-Si la VM est en local/dans un réseau fermé, c'est pas grave vous pouvez laisser ça
+Si la VM est en local/dans un réseau fermé, c'est pas grave vous pouvez laisser ça tel quel.
 
 ## Utilitaire
 
