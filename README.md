@@ -1,5 +1,31 @@
 # Scripts
 
+# Sommaire
+
+- [Scripts](#scripts)
+- [Sommaire](#sommaire)
+- [Description](#description)
+  - [VPS](#vps)
+  - [VM-CloudInit](#vm-cloudinit)
+    - [Pré-Installation](#pré-installation)
+      - [Télécharger les images des différents OS](#télécharger-les-images-des-différents-os)
+    - [Installation](#installation)
+    - [Utilisation](#utilisation)
+      - [create\_vm](#create_vm)
+      - [getip\_vm](#getip_vm)
+      - [delete\_vm](#delete_vm)
+    - [Cas particuliers](#cas-particuliers)
+      - [Sécurité](#sécurité)
+  - [Utilitaire](#utilitaire)
+  - [Markdown](#markdown)
+    - [Installation](#installation-1)
+    - [md2html](#md2html)
+      - [Utilisation](#utilisation-1)
+    - [mdf2html](#mdf2html)
+    - [Utilisation](#utilisation-2)
+
+# Description
+
 Dans ce dépôt git vous allez retrouver différents scripts que j'utilise au quotidien.
 
 Pour l'instant il n'y a que des scripts pour du Linux, je n'utilise pas Windows Server.
@@ -137,3 +163,40 @@ Si la VM est en local/dans un réseau fermé, c'est pas grave vous pouvez laisse
 ## Utilitaire
 
 Dans ce dossier se trouve des scripts qui peuvent m'être utile parfois.
+
+## Markdown
+
+Dans ce dossier se trouve différents scripts que j'utilise lié au Markdown.
+
+### Installation
+
+Pour installer ces scripts, vous devez exécuter ces commandes après avoir cloner le dépôt scripts : 
+```
+sudo cp markdown/* /usr/bin/ && sudo chmod +x /usr/bin/{md2html,mdf2html}
+mkdir ~/.config/md2html && cp markdown/github.css ~/.config/md2html/github.css
+```
+
+### md2html
+
+Ce script utilise Pandoc pour généré un fichier HTML que j'ouvre ensuite dans Firefox, vous devez avoir Pandoc et Firefox d'installer sur votre système pour pouvoir l'utiliser, sinon vous pouvez aussi modifier le script pour que celui-ci l'ouvre dans un autre navigateur (Ex : Chrome).
+
+#### Utilisation
+
+```
+md2html README.md README.html
+```
+
+Cela donne README.html
+
+
+### mdf2html
+
+Ce script utilise la même base que md2html, sauf qu'il fait une boucle dans le dossier dans lequel il est pour générer tout les fichiers Markdown en HTML.
+
+### Utilisation
+
+```
+mdf2html
+```
+
+Il vient tout seul aller chercher dans le dossier les fichiers Markdown et les convertis à l'aide de md2html.
