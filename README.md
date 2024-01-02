@@ -13,6 +13,7 @@
     - [Utilisation](#utilisation)
       - [create\_vm](#create_vm)
       - [getip\_vm](#getip_vm)
+      - [list\_vm](#list_vm)
       - [delete\_vm](#delete_vm)
     - [Cas particuliers](#cas-particuliers)
       - [Sécurité](#sécurité)
@@ -126,6 +127,26 @@ Exemple :
 
 getip_vm debian # Notre commande
 192.168.122.163 # La sortie
+```
+
+#### list_vm
+
+```
+list_vm
+Exemple : 
+
+list_vm # Notre commande
+# La sortie
+ Id   Name         State
+-----------------------------
+ 9    debian       running
+ 14   oxidized     running
+ 16   pfSense      running
+ 20   opnsense     running
+ 22   ptero        running
+ 23   oxidized-2   running
+ 24   netbox       running
+ -    labtainer    shut off
 ```
 
 #### delete_vm
