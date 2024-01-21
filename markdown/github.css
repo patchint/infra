@@ -441,6 +441,7 @@ body table th,
 body table td {
   padding: 6px 13px;
   border: 1px solid #ddd;
+  background-color: black;
 }
 
 body table tr {
