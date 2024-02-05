@@ -8,8 +8,8 @@ echo "Package: auth*\nPin: origin repo.powerdns.com\nPin-Priority: 600" > /etc/a
 echo "Package: rec*\nPin: origin repo.powerdns.com\nPin-Priority: 600" > /etc/apt/preferences.d/rec-50
 echo "Package: dnsdist*\nPin: origin repo.powerdns.com\nPin-Priority: 600" > /etc/apt/preferences.d/dnsdist-18
 install -d /etc/apt/keyrings; curl https://repo.powerdns.com/FD380FBB-pub.asc | tee /etc/apt/keyrings/auth-48-pub.asc
-install -d /etc/apt/keyrings; curl https://repo.powerdns.com/FD380FBB-pub.asc | sudo tee /etc/apt/keyrings/rec-50-pub.asc
-install -d /etc/apt/keyrings; curl https://repo.powerdns.com/FD380FBB-pub.asc | sudo tee /etc/apt/keyrings/dnsdist-18-pub.asc
+install -d /etc/apt/keyrings; curl https://repo.powerdns.com/FD380FBB-pub.asc | tee /etc/apt/keyrings/rec-50-pub.asc
+install -d /etc/apt/keyrings; curl https://repo.powerdns.com/FD380FBB-pub.asc | tee /etc/apt/keyrings/dnsdist-18-pub.asc
 ```
 
 ## Installation des paquets
